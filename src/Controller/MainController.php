@@ -10,7 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    
+    /**
+     * @Route("/api/indices", name="indices")
+     */
     public function showIndices(): Response
     {
 
