@@ -1,3 +1,9 @@
-# indices:
-#    path: /api/indices
-#    controller: App\Controller\MainController::showIndices
+api_login_check:
+    path: /api/login_check
+    methods:  [POST]
+
+  
+register:
+    path: /api/register
+    controller: App\Controller\SecurityController::register
+    methods: POST
