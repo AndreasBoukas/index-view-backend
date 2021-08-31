@@ -22,9 +22,6 @@ jobs:
       - run: sudo apt install -y libsqlite3-dev zlib1g-dev mariadb-client zlib1g-dev
       - run: sudo docker-php-ext-install zip pdo_mysql
       - run: sudo docker-php-ext-enable zip pdo_mysql
-      - run: php bin/console doctrine:database:create
-      - run: php bin/console make:migration
-      - run: php bin/console doctrine:migrations:migrate
       - run: sudo composer self-update
       - restore_cache: # special step to restore the dependency cache if `composer.lock` does not change
           keys:
