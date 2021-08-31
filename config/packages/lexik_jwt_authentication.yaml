@@ -1,5 +1,5 @@
 lexik_jwt_authentication:
     secret_key: '%env(JWT_SECRET_KEY)%'
     public_key: '%env(JWT_PUBLIC_KEY)%'
-    pass_phrase: '%env(JWT_PASSPHRASE)%' # required for token creation, usage of an environment variable is recommended
+    pass_phrase: 'd9100837cccef94be85f8b3812f45993' # required for token creation, usage of an environment variable is recommended
     token_ttl: 600 #expires after 10 minutes
