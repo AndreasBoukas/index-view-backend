@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\User;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class SecurityController extends AbstractController
@@ -20,7 +21,7 @@ class SecurityController extends AbstractController
         $username = $request->request->get('_username');
         $password = $request->request->get('_password');
         if ($username === "" || $password === "") {
-            return new Response(sprintf('Invalid inputs passed , please check your data. '), 422);
+            return new JsonResponse(sprintf('Invalid inputs passed , please check your data. '), 422);
         }
         $user = new User();
         $user->setUsername($username);
@@ -29,7 +30,7 @@ class SecurityController extends AbstractController
         $em->persist($user);
         $em->flush();
 
-        return new Response(sprintf('User %s successfully created', $user->getUserIdentifier()));
+        return new JsonResponse(sprintf('User %s successfully created', $user->getUserIdentifier()));
     }
 
     //The user log in is handled by the jwt auth package. Check securiy.yaml and lexik_jwt_authentication.yaml and routes.yaml
